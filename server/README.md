@@ -35,3 +35,9 @@ There are two model schemes.
 | -------- | ------- |
 | `locationmodels`  | Includes the structure of the rooms and the tables    |
 | `tablereservationmodels` | Contains the bookings for the tables for stored dates    |
+
+--------------------------------------------------------
+
+# Admin Rights
+
+To pretend to be an admin, the boolean return value within the function `hasPermission` in index.ts must be set to true
