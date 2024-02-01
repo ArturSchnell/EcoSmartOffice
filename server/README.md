@@ -1,4 +1,4 @@
-# Node + Backend Server
+# Backend Server (Node) + MongoDB
 
 To start the client, the `.env` must first be created. The .env.example can be used for this.
 
@@ -23,10 +23,10 @@ By default mongodb is running on port 27017 and the backend-server is reachable 
 #MongoDB Container
 | Variable   | Description      | 
 | -------- | ------- |
-| `MONGODB_USERNAME`  | Sets the username for MongoDb    |
-| `MONGODB_PASSWORD` | Sets the password for MongoDb    |
-| `MONGODB_ADDRESS`    | Sets the address at which MongoDb can be reached. By default `MONGODB_ADDRESS=localhost`. However, as this is within a Docker container, `host.docker.internal` must be entered here.    |
-| `MONGODB_PORT` | Sets the port for MongoDb. Default `MONGODB_PORT=27017`    |
+| `MONGODB_USERNAME`  | Sets the username for MongoDB    |
+| `MONGODB_PASSWORD` | Sets the password for MongoDB    |
+| `MONGODB_ADDRESS`    | Sets the address at which MongoDB can be reached. By default `MONGODB_ADDRESS=localhost`. However, as this is within a Docker container, `host.docker.internal` must be entered here.    |
+| `MONGODB_PORT` | Sets the port for MongoDB. Default `MONGODB_PORT=27017`    |
 | `MONGODB_DATABASE` | Sets the name for the Database    |
 ---------------------------------------------------
 # Database model schemes:
