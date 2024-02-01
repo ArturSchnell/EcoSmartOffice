@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  frontend_container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    env_file:
+      - .env
+    expose:
+      - ${VITE_MSAL_CLIENT_REDIRECT_PORT}
+    ports:
+      - ${VITE_MSAL_CLIENT_REDIRECT_PORT}:${VITE_MSAL_CLIENT_REDIRECT_PORT}
+    command: npm run dev

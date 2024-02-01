@@ -11,7 +11,7 @@
             tables.set(
                 get(tables).map((table) => {
                     return { ...table, state: undefined, user: undefined, isItMe: false };
-                })
+                }),
             );
             if (tableDetails) {
                 tableDetails.forEach((tableDetail: any) => {
@@ -110,7 +110,7 @@
      * @param {number} days the number of days to increase the offset by
      * @returns {void}
      */
-    function increaseDays(days: number) {
+    function increaseDays(days: number): void {
         offset += days;
         setWeekNumber(offset);
         setWeek();
@@ -223,7 +223,6 @@
     div.item.selected {
         font-weight: bolder;
         background: #fff;
-
         color: #3c3c3b;
     }
 </style>

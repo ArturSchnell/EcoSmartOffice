@@ -13,7 +13,9 @@
     </div>
   </div>
 {:else}
-  <div class="d-flex flex-column h-100 container-fluid nl"><span>Unauthorized</span></div>
+  <div class="d-flex flex-column h-100 container-fluid nl">
+    <span>Unauthorized</span>
+  </div>
 {/if}
 
 <style>

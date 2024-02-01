@@ -18,7 +18,7 @@
             <div class="panel">
                 <!-- svelte-ignore a11y-invalid-attribute -->
                 <a class="navbar-brand rel" href="#">
-                    <img src="../src/assets/EcoSmartOffice.svg" alt="Logo" />
+                    <img src="../src/assets/jambit-logo.svg" alt="Logo" />
                 </a>
             </div>
             <div class="d-flex container-fluid justify-content-between">

@@ -27,7 +27,7 @@ export const getFloorDetails = async (floor: number, token: string): Promise<any
         const response = await Api.get(`/location/${floor}`, token);
         return response;
     } catch (error) {
-        throw error;
+        console.error(error);
     }
 };
 

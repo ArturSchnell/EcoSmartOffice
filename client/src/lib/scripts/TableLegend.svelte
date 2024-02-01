@@ -36,6 +36,7 @@
         border: 1px solid #3c3c3b;
         margin: 5px;
         justify-content: end;
+        user-select: none;
     }
 
     .green {

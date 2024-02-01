@@ -265,7 +265,7 @@
         setWeekdaysForReservation();
         modalObject.title = 'Tischreservierung';
         modalObject.messageStandard = `Soll der Tisch für den <b>${getModalDate()}</b> gebucht werden?`;
-        modalObject.checkboxMessage = 'Zusätzlich Serienelemente buchen für';
+        modalObject.checkboxMessage = 'Serienelemente buchen für';
         modalObject.showHidden = true;
         modalObject.functions.Accept.function = () => {
             // async axios call for new table reservation
@@ -375,8 +375,8 @@
 </script>
 
 {#if isModalOpen}
-    <Modal isOpen="{isModalOpen}" toggle="{toggle}">
-        <ModalHeader toggle="{toggle}">{modalObject.title}</ModalHeader>
+    <Modal isOpen="{isModalOpen}" {toggle}>
+        <ModalHeader {toggle}>{modalObject.title}</ModalHeader>
         <ModalBody>
             {@html modalObject.messageStandard}
         </ModalBody>

@@ -103,14 +103,18 @@
     export const setFloorDetails = (): void => {
         floorsLoaded.set(false);
         if ($selectedFloor > 0) {
-            getFloorDetails($selectedFloor, $tokenMSAL).then((floorDetails) => {
-                floorD.rooms = floorDetails.structure.rooms;
-                floorD.edges = floorDetails.structure.edges;
-                floorD.nodes = floorDetails.structure.nodes;
+            getFloorDetails($selectedFloor, $tokenMSAL)
+                .then((floorDetails) => {
+                    floorD.rooms = floorDetails.structure.rooms;
+                    floorD.edges = floorDetails.structure.edges;
+                    floorD.nodes = floorDetails.structure.nodes;
 
-                setTableDetails();
-                floorsLoaded.set(true);
-            });
+                    setTableDetails();
+                    floorsLoaded.set(true);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     };
 
@@ -140,7 +144,7 @@
                     currentTable.height,
                     currentTable.matrix,
                     currentTable.state,
-                    currentTable.isLoaded
+                    currentTable.isLoaded,
                 );
                 tables[index] = updatedTable;
             });
@@ -164,7 +168,7 @@
                     line.start.point.y,
                     line.end.point.x,
                     line.end.point.y,
-                    false
+                    false,
                 );
                 if (!isLineAlreadyExisting(newLine)) {
                     newLine.add();

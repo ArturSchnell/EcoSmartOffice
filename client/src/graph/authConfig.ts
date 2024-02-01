@@ -17,7 +17,6 @@ const msalConfig = {
         storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
 };
-
 const myMSALObj = new PublicClientApplication(msalConfig);
 
 

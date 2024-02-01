@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { capitalizeFirstLetter } from "../../utils/utils";
 const { isValidDate } = require('../../src/validation');
-const { tableReservationModel } = require('../../src/models');
+const { tableReservationModel, locationModel } = require('../../src/models');
 
 /**
  * Endpoint for retrieving table availability for a specific floor and date

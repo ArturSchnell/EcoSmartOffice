@@ -25,11 +25,10 @@ const user: User = {
     firstname: '',
     lastname: '',
     userId: '',
-    isAdmin: false,
 };
 let isAdmin: boolean = false;
 let isLoggedIn: boolean = false;
-let token: any;
+let token: string;
 
 // Middleware
 app.use(cookieParser())
@@ -58,7 +57,11 @@ app.listen(PORT || 4000, (): void => {
  * @returns {boolean} true if the user has permission, false otherwise
  */
 export const hasPermission = (): boolean => {
-    return user.isAdmin;
+    /**
+     * TODO: Logic for admin rights in connection with Azure Groups 
+     * Needs arrangements for implementation. 
+     */
+    return true;
 }
 
 const hour = process.env.BACKEND_CRONJOB_HOUR || '22';
@@ -100,17 +103,14 @@ app.all('*', async (req: Request, res: Response, next: NextFunction): Promise<vo
             user.firstname = auth.user.forename;
             user.lastname = auth.user.lastname;
             user.userId = auth.user.userId;
-            user.isAdmin = auth.user.isAdmin;
         }
     } else {
         try {
             await callMSGraph(graphConfig.graphMeEndpoint, token).then(resp => {
-
                 user.city = resp.city;
                 user.firstname = resp.givenName;
                 user.lastname = resp.surname;
                 user.userId = resp.id;
-                user.isAdmin = resp.group.Verwaltung ?? false;
 
                 const jwtToken = jwt.sign({ user }, process.env.BACKEND_JWT_SECRET, { algorithm: "HS256" })
                 res.cookie("userAuth", jwtToken, { httpOnly: true, secure: true, sameSite: 'strict' });

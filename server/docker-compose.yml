@@ -9,24 +9,26 @@ services:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
+    depends_on:
+      - mongodb_container
+    env_file:
+      - .env
     expose:
-      - 4000
+      - ${BACKEND_SERVER_PORT}
     ports:
-      - 4000:4000
+      - ${BACKEND_SERVER_PORT}:${BACKEND_SERVER_PORT}
     command: npm run dev
   mongodb_container:
     image: mongo:latest
+    env_file:
+      - .env
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
-      - MONGO_INITDB_DATABASE=blub
     restart: always
     expose:
       - ${MONGODB_PORT}
     ports:
-      - ${MONGODB_PORT}:27017
+      - 27017:${MONGODB_PORT}
     volumes:
-      - mongodb_data_container:/data/db
-
-volumes:
-  mongodb_data_container:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro

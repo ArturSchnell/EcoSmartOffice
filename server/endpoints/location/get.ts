@@ -30,7 +30,7 @@ export const getLocationFloorHandler = async (req: Request, res: Response, next:
         .select('-_id floor structure')
         .then((result: any) => {
             if (!result) {
-                res.sendStatus(400);
+                res.sendStatus(404);
                 return;
             }
             res.json(result);
