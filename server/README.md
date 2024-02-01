@@ -13,7 +13,7 @@ By default mongodb is running on port 27017 and the backend-server is reachable 
 | Variable   | Description      | 
 |----------|-------------|
 | `BACKEND_SERVER_PORT` |Sets the port under which the backend server can be reached. Default: `BACKEND_SERVER_PORT=4000` |
-| `BACKEND_FRONTEND_URL` |Sets the address and port at which the frontend server can be reached. Default `BACKEND_FRONTEND_URL=http://localhost:5173` <br><br>This value must be identical to the variables `VITE_MSAL_CLIENT_REDIRECT_ADDRESS` and `VITE_MSAL_CLIENT_REDIRECT_PORT` within the .env in the front end.    |
+| `BACKEND_FRONTEND_URL` |Sets the address and port at which the frontend server can be reached. Default `BACKEND_FRONTEND_URL=http://localhost:5173` <br><br>This value must be identical to the variables `VITE_BACKEND_ADDRESS` and `VITE_BACKEND_PORT` within the .env in the front end.    |
 | `BACKEND_LOCATIONS_FILE=locations.yml` | Not relevant for Tech-Adventure. This stores all location-related data in connection with energy efficiency. (Can be viewed in locations.yml) Not relevant for Tech-Adventure |
 | `BACKEND_PROTOCOLS_FOLDER_PATH=protocols` | Not relevant for Tech-Adventure. Stores a folder under which logs for temperature settings can be saved. |
 | `BACKEND_JWT_SECRET` | Sets the secret Token for JWT |
